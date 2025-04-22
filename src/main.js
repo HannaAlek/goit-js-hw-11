@@ -29,11 +29,11 @@ getImagesByQuery(searchText)
     const arr=response.data.hits;
     if (!arr.length){
         iziToast.show(errorMsg);
-        clearGallery();
-        hideLoader();
+        // clearGallery();
+        // hideLoader();
         return;
     };
-    hideLoader();
+    // hideLoader();
     createGallery(arr);
     let galleryLightbox=new SimpleLightbox('.gallery a',{
         captionsData:'alt',
