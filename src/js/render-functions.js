@@ -43,19 +43,22 @@ export function createGallery(images){
     </a>
   </li>
   `).join('');
+  let galleryLightbox=new SimpleLightbox('.gallery a',{
+    captionsData:'alt',
+    captionsDelay:250
+});
+
   }
 
-  // const lightbox=new SimpleLightbox('.gallery a', {captionsData:'alt', captionDelay:250, overlayOpacity:'0.95'});
-
-  const downloadText=document.querySelector('div');
 export function clearGallery(){
 gallery.innerHTML='';
 }
 
+const loader=document.querySelector('div');
 export function showLoader(){
-  downloadText.classList.add('loader');
+  loader.classList.add('loader');
 }
 
 export function hideLoader(){
-  downloadText.classList.remove('loader')
+  loader.classList.remove('loader')
 }

@@ -13,19 +13,9 @@ const errorMsg="Sorry, there are no images matching your search query. Please tr
 const form=document.querySelector('.form');
 form.addEventListener('submit',(event)=>{
 event.preventDefault();
-// // const searchText=event.target.value;
-// console.log(event.target.elements.value)
-// if (!event.target.elements.value){
-// iziToast.show(errorMsg);
-// form.reset();
-// return
-// };
-// showLoader();
-
+showLoader();
 const inputSearch=document.querySelector('input')
 
-// console.log(inputSearch.value)
-// const searchText=inputSearch.value;
 getImagesByQuery(inputSearch.value)
 .then(response=>{
     const arr=response.data.hits;
@@ -37,15 +27,10 @@ getImagesByQuery(inputSearch.value)
     };
     hideLoader();
     createGallery(arr);
-    let galleryLightbox=new SimpleLightbox('.gallery a',{
-        captionsData:'alt',
-        captionsDelay:250
-    });
     galleryLightbox.refresh();
 })
 .catch(Error=>{
     hideLoader();
-    iziToast.show({message:'Error connecting to server'});
 });
 form.reset();
 })
