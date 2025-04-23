@@ -8,7 +8,7 @@ import getImagesByQuery from "./js/pixabay-api";
 
 import {createGallery, clearGallery, showLoader, hideLoader} from "./js/render-functions";
 
-const errorMsg='Sorry, there are no images matching your search query. Please try again!';
+const errorMsg="Sorry, there are no images matching your search query. Please try again!";
 
 const form=document.querySelector('.form');
 form.addEventListener('submit',(event)=>{
@@ -23,13 +23,14 @@ event.preventDefault();
 // showLoader();
 
 const inputSearch=document.querySelector('input')
+
 // console.log(inputSearch.value)
 // const searchText=inputSearch.value;
 getImagesByQuery(inputSearch.value)
 .then(response=>{
     const arr=response.data.hits;
     if (!arr.length){
-        iziToast.show(errorMsg);
+        iziToast.show({message:`${errorMsg}`});
         clearGallery();
         hideLoader();
         return;
@@ -44,7 +45,7 @@ getImagesByQuery(inputSearch.value)
 })
 .catch(Error=>{
     hideLoader();
-    iziToast.show('Error connecting to server');
+    iziToast.show({message:'Error connecting to server'});
 });
 form.reset();
 })

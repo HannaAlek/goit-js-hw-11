@@ -47,15 +47,15 @@ export function createGallery(images){
 
   // const lightbox=new SimpleLightbox('.gallery a', {captionsData:'alt', captionDelay:250, overlayOpacity:'0.95'});
 
-
+  const downloadText=document.querySelector('div');
 export function clearGallery(){
 gallery.innerHTML='';
 }
 
 export function showLoader(){
-gallery.classList.add('loader');
+  downloadText.classList.add('loader');
 }
 
 export function hideLoader(){
-gallery.classList.remove('loader')
+  downloadText.classList.remove('loader')
 }
