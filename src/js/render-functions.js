@@ -21,7 +21,6 @@ export function createGallery(images){
         class="gallery-image"
         src="${webformatURL}"
         alt="${tags}"
-        width="500"
       />
       <ul class='info-list'>
       <li class='info-item'>
