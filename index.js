@@ -26,5 +26,5 @@ import{a as p,S as m,i as d}from"./assets/vendor-BH9GyP-n.js";(function(){const 
       </ul>
     </a>
   </li>
-  `).join(""),new m(".gallery a",{captionsData:"alt",captionsDelay:250})}function L(){c.innerHTML=""}const f=document.querySelector("div");function x(){f.classList.add("loader")}function n(){f.classList.remove("loader")}const S="Sorry, there are no images matching your search query. Please try again!",l=document.querySelector(".form");l.addEventListener("submit",o=>{o.preventDefault(),x();const r=document.querySelector("input");g(r.value).then(i=>{const s=i.data.hits;if(!s.length){d.show({message:`${S}`}),L(),n();return}n(),h(s),galleryLightbox.refresh()}).catch(i=>{n()}),l.reset()});
+  `).join(""),new m(".gallery a",{captionsData:"alt",captionsDelay:250})}function L(){c.innerHTML=""}const f=document.querySelector("span");function x(){f.classList.add("loader")}function n(){f.classList.remove("loader")}const S="Sorry, there are no images matching your search query. Please try again!",l=document.querySelector(".form");l.addEventListener("submit",o=>{o.preventDefault(),x();const r=document.querySelector("input");g(r.value).then(i=>{const s=i.data.hits;if(!s.length){d.show({message:`${S}`}),L(),n();return}n(),h(s),galleryLightbox.refresh()}).catch(i=>{n()}),l.reset()});
 //# sourceMappingURL=index.js.map
