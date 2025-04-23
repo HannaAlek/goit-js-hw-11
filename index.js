@@ -1,10 +1,10 @@
-import{a as f,i as a,S as u}from"./assets/vendor-BH9GyP-n.js";(function(){const r=document.createElement("link").relList;if(r&&r.supports&&r.supports("modulepreload"))return;for(const e of document.querySelectorAll('link[rel="modulepreload"]'))l(e);new MutationObserver(e=>{for(const t of e)if(t.type==="childList")for(const s of t.addedNodes)s.tagName==="LINK"&&s.rel==="modulepreload"&&l(s)}).observe(document,{childList:!0,subtree:!0});function i(e){const t={};return e.integrity&&(t.integrity=e.integrity),e.referrerPolicy&&(t.referrerPolicy=e.referrerPolicy),e.crossOrigin==="use-credentials"?t.credentials="include":e.crossOrigin==="anonymous"?t.credentials="omit":t.credentials="same-origin",t}function l(e){if(e.ep)return;e.ep=!0;const t=i(e);fetch(e.href,t)}})();const p="49870616-6fef29b5083a7d4b692a746ee";function m(o){return f(`https://pixabay.com/api/?key=${p}`)}const n=document.querySelector(".gallery");function y(o){n.innerHTML=o.map(({webformatURL:r,largeImageURL:i,tags:l,likes:e,views:t,comments:s,downloads:c})=>`
+import{a as p,i as c,S as m}from"./assets/vendor-BH9GyP-n.js";(function(){const r=document.createElement("link").relList;if(r&&r.supports&&r.supports("modulepreload"))return;for(const e of document.querySelectorAll('link[rel="modulepreload"]'))o(e);new MutationObserver(e=>{for(const t of e)if(t.type==="childList")for(const a of t.addedNodes)a.tagName==="LINK"&&a.rel==="modulepreload"&&o(a)}).observe(document,{childList:!0,subtree:!0});function i(e){const t={};return e.integrity&&(t.integrity=e.integrity),e.referrerPolicy&&(t.referrerPolicy=e.referrerPolicy),e.crossOrigin==="use-credentials"?t.credentials="include":e.crossOrigin==="anonymous"?t.credentials="omit":t.credentials="same-origin",t}function o(e){if(e.ep)return;e.ep=!0;const t=i(e);fetch(e.href,t)}})();const d="49870616-6fef29b5083a7d4b692a746ee";function y(s){const r=new URLSearchParams({key:d,q:s,image_type:"photo",orientation:"horizontal",safesearch:!0});return p(`https://pixabay.com/api/?${r}`)}const l=document.querySelector(".gallery");function g(s){l.innerHTML=s.map(({webformatURL:r,largeImageURL:i,tags:o,likes:e,views:t,comments:a,downloads:u})=>`
   <li class="gallery-item">
     <a class="gallery-link" href="${i}">
       <img
         class="gallery-image"
         src="${r}"
-        alt="${l}"
+        alt="${o}"
       />
       <ul class='info-list'>
       <li class='info-item'>
@@ -17,14 +17,14 @@ import{a as f,i as a,S as u}from"./assets/vendor-BH9GyP-n.js";(function(){const 
       </li>
       <li class='info-item'>
       <p class='info-text'>Comments</p>
-      <p class='info-text'>${s}</p>
+      <p class='info-text'>${a}</p>
       </li>
       <li class='info-item'>
       <p class='info-text'>Downloads</p>
-      <p class='info-text'>${c}</p>
+      <p class='info-text'>${u}</p>
       </li>
       </ul>
     </a>
   </li>
-  `).join("")}function d(){n.classList.remove("loader")}const g="Sorry, there are no images matching your search query. Please try again!",h=document.querySelector(".form");document.querySelector("input.text");m().then(o=>{const r=o.data.hits;if(!r.length){a.show(g);return}y(r),new u(".gallery a",{captionsData:"alt",captionsDelay:250}).refresh()}).catch(o=>{d(),a.show("Error connecting to server")});h.reset();
+  `).join("")}function h(){l.innerHTML=""}function n(){l.classList.remove("loader")}const L="Sorry, there are no images matching your search query. Please try again!",f=document.querySelector(".form");f.addEventListener("submit",s=>{s.preventDefault();const r=document.querySelector("input");y(r.value).then(i=>{const o=i.data.hits;if(!o.length){c.show(L),h(),n();return}n(),g(o),new m(".gallery a",{captionsData:"alt",captionsDelay:250}).refresh()}).catch(i=>{n(),c.show("Error connecting to server")}),f.reset()});
 //# sourceMappingURL=index.js.map
