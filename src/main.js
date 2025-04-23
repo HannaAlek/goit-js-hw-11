@@ -11,10 +11,10 @@ import {createGallery, clearGallery, showLoader, hideLoader} from "./js/render-f
 const errorMsg='Sorry, there are no images matching your search query. Please try again!';
 
 const form=document.querySelector('.form');
-// form.addEventListener('submit',(event)=>{
-// event.preventDefault();
-// const searchText=event.target.elements.value;
-// // console.log(event.target.elements.text.trim())
+form.addEventListener('submit',(event)=>{
+event.preventDefault();
+// // const searchText=event.target.value;
+// console.log(event.target.elements.value)
 // if (!event.target.elements.value){
 // iziToast.show(errorMsg);
 // form.reset();
@@ -22,18 +22,19 @@ const form=document.querySelector('.form');
 // };
 // showLoader();
 
-const inputSearch=document.querySelector('input.text')
-const searchText=inputSearch;
-getImagesByQuery(searchText)
+const inputSearch=document.querySelector('input')
+// console.log(inputSearch.value)
+// const searchText=inputSearch.value;
+getImagesByQuery(inputSearch.value)
 .then(response=>{
     const arr=response.data.hits;
     if (!arr.length){
         iziToast.show(errorMsg);
-        // clearGallery();
-        // hideLoader();
+        clearGallery();
+        hideLoader();
         return;
     };
-    // hideLoader();
+    hideLoader();
     createGallery(arr);
     let galleryLightbox=new SimpleLightbox('.gallery a',{
         captionsData:'alt',
@@ -46,4 +47,4 @@ getImagesByQuery(searchText)
     iziToast.show('Error connecting to server');
 });
 form.reset();
-// })
+})
