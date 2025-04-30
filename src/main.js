@@ -9,7 +9,7 @@ import getImagesByQuery from "./js/pixabay-api";
 import {createGallery, clearGallery, showLoader, hideLoader} from "./js/render-functions";
 
 const errorMsg="Sorry, there are no images matching your search query. Please try again!";
-
+hideLoader();
 const form=document.querySelector('.form');
 form.addEventListener('submit',(event)=>{
 event.preventDefault();
